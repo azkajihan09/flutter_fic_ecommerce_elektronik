@@ -96,7 +96,6 @@ class _HomePageState extends State<HomePage> {
                         return badges.Badge(
                           badgeStyle: const badges.BadgeStyle(
                               elevation: 0, badgeColor: Colors.white),
-                          // elevation: 0,
                           badgeContent: Text(
                             '${state.items.length}',
                             style: const TextStyle(
@@ -111,12 +110,10 @@ class _HomePageState extends State<HomePage> {
                       return const badges.Badge(
                         badgeStyle: badges.BadgeStyle(
                             elevation: 0, badgeColor: Colors.white),
-                        // elevation: 0,
                         badgeContent: Text(
                           '4',
                           style: TextStyle(color: Color(0xffEE4D2D)),
                         ),
-                        // badgeColor: Colors.white,
                         child: Icon(
                           Icons.shopping_cart_outlined,
                         ),
@@ -127,49 +124,15 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          // actions: const [
-          //   Row(
-          //     children: [
-          //       Icon(
-          //         Icons.mail_outlined,
-          //         color: Colors.black,
-          //         size: 25,
-          //       ),
-          //       Padding(
-          //         padding: EdgeInsets.only(left: 8),
-          //       ),
-          //       Icon(
-          //         Icons.notifications_outlined,
-          //         color: Colors.black,
-          //         size: 25,
-          //       ),
-          //       Padding(
-          //         padding: EdgeInsets.only(left: 8),
-          //       ),
-          //       Icon(
-          //         Icons.shopping_cart_outlined,
-          //         color: Colors.black,
-          //         size: 25,
-          //       ),
-          //       Padding(
-          //         padding: EdgeInsets.only(left: 10),
-          //       ),
-          //     ],
-          //   ),
-          // ],
         ),
       ),
       body: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // SizedBox(
-          //   height: 5,
-          // ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: BannerWidget(),
           ),
-
           ListCategoryWidget(),
           SizedBox(height: 8),
           Padding(
