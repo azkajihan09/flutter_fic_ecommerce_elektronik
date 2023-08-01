@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 
 
-import '../../data/models/list_product_response_model.dart';
+import '../../data/models/responses/list_product_response_model.dart';
 
 part 'checkout_event.dart';
 part 'checkout_state.dart';

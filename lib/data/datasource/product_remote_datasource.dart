@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
 
 import '../../common/global_variables.dart';
-import '../models/list_product_response_model.dart';
+import '../models/responses/list_product_response_model.dart';
 
 class ProductRemoteDatasource {
   Future<Either<String, ListProductResponseModel>> getAllProduct() async {

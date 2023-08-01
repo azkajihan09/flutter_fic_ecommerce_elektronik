@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/checkout/checkout_bloc.dart';
-import '../../bloc/get_products/get_products_bloc.dart';
-import '../../data/models/list_product_response_model.dart';
+import '../../../bloc/checkout/checkout_bloc.dart';
+import '../../../bloc/get_products/get_products_bloc.dart';
+import '../../../data/models/responses/list_product_response_model.dart';
 
 class ListProductWidget extends StatefulWidget {
   const ListProductWidget({super.key});
@@ -136,14 +136,33 @@ class _ListProductWidgetState extends State<ListProductWidget> {
                             ),
                             Row(
                               children: [
-                                const Icon(
-                                  Icons.remove_circle_outline,
-                                  size: 18,
-                                  color: Color(0xff3A539B),
+                                InkWell(
+                                  onTap: () {
+                                    context.read<CheckoutBloc>().add(
+                                        RemoveFromCartEvent(product: product));
+                                  },
+                                  child: const Icon(
+                                    Icons.remove_circle_outline,
+                                    size: 18,
+                                    color: Color(0xff3A539B),
+                                  ),
                                 ),
-                                const Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 5),
-                                  child: Text('0'),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 5),
+                                  child:
+                                      BlocBuilder<CheckoutBloc, CheckoutState>(
+                                          builder: (context, state) {
+                                    if (state is CheckoutLoaded) {
+                                      final countItem = state.items
+                                          .where((element) =>
+                                              element.id == product.id)
+                                          .length;
+                                      return Text('$countItem');
+                                    }
+
+                                    return const Text('0');
+                                  }),
                                 ),
                                 InkWell(
                                   onTap: () {

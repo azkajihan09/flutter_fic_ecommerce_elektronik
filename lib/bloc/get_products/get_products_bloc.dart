@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 
 
 import '../../data/datasource/product_remote_datasource.dart';
-import '../../data/models/list_product_response_model.dart';
+import '../../data/models/responses/list_product_response_model.dart';
 
 part 'get_products_event.dart';
 part 'get_products_state.dart';

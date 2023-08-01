@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fic_ecommerce_elektronik/common/global_variables.dart';
-import 'package:flutter_fic_ecommerce_elektronik/presention/widget/list_category_widget.dart';
+import 'package:flutter_fic_ecommerce_elektronik/presentation/home/widget/list_category_widget.dart';
 
-import '../bloc/checkout/checkout_bloc.dart';
+import '../../bloc/checkout/checkout_bloc.dart';
+import '../cart/cart_page.dart';
 import 'widget/banner_widget.dart';
 import 'widget/list_product_widget.dart';
 import 'package:badges/badges.dart' as badges;
@@ -102,8 +103,16 @@ class _HomePageState extends State<HomePage> {
                               color: Color(0xffEE4D2D),
                             ),
                           ),
-                          child: const Icon(
-                            Icons.shopping_cart_outlined,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const CartPage()));
+                            },
+                            child: const Icon(
+                              Icons.shopping_cart_outlined,
+                            ),
                           ),
                         );
                       }
