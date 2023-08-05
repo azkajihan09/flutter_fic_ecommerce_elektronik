@@ -76,6 +76,7 @@ class _AuthPageState extends State<AuthPage> {
                       key: _signUpFormKey,
                       child: Column(
                         children: [
+                
                           CustomTextField(
                             controller: _nameController,
                             hintText: 'Name',
