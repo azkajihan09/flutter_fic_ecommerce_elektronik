@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/checkout/checkout_bloc.dart';
 import '../../bloc/order/order_bloc.dart';
 import '../../common/snap_widget.dart';
+import '../../data/datasource/auth_local_datasource.dart';
 import '../../data/models/order_request_model.dart';
 
 class CheckoutPage extends StatefulWidget {
@@ -102,7 +103,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 return ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xffEE4D2D)),
-                  onPressed: () {
+                  onPressed: () async {
+                    final userId = await AuthLocalDatasource().getUserId();
                     final total = state.items
                         .fold(0, (sum, item) => sum + item.attributes!.price!);
                     final data = Data(
@@ -116,7 +118,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       totalPrice: total,
                       deliveryAddress: addressController.text,
                       courierName: 'JNE',
-                      
                       shippingCost: 22000,
                       statusOrder: 'waitingPayment',
                     );
@@ -139,9 +140,3 @@ class _CheckoutPageState extends State<CheckoutPage> {
     );
   }
 }
-
-
-
-
-
-
